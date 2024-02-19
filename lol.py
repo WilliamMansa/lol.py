@@ -24,7 +24,7 @@ def Interest(age, income):
 def bank_management():
     st.title("All India Loan Management System")
     st.write("Fill in the following details to check your loan eligibility and interest rate:")
-    st.image("bank.jfif")
+    st.image("liver.jfif")
 
     age = st.slider("Your Age:", 18, 100)
     income = st.number_input("saal ka kitna kamate ho:", min_value=0)
