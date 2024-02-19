@@ -1,7 +1,17 @@
 import streamlit as st
 from PIL import Image
-color = st.color_picker('Pick A Color', '#00f900')
-st.write('The current color is', color)
+import time
+
+progress_text = "Operation in progress. Please wait."
+my_bar = st.progress(0, text=progress_text)
+
+for percent_complete in range(100):
+    time.sleep(0.01)
+    my_bar.progress(percent_complete + 1, text=progress_text)
+time.sleep(1)
+my_bar.empty()
+
+st.button("Rerun")
 def check_eligible(age, income):
     if age >= 18 and income >= 100000:
         return True
@@ -33,6 +43,8 @@ def bank_management():
     if st.button("Check Eligibility"):
         if check_eligible(age, income):
             st.success("Congratulations! You are eligible for a loan. and bhut paise denge")
+            progress_text = "Operation in progress. Please wait."
+            my_bar = st.progress(0, text=progress_text)
             interest_rate = Interest(age, income)
             st.write("Based on your details, the interest rate for your loan is:", interest_rate, "%")
             st.write("apke sath jldi baat hogi dhanyawad.")
