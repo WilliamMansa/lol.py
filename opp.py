@@ -1,6 +1,7 @@
 import streamlit as st
 from PIL import Image
-
+color = st.color_picker('Pick A Color', '#00f900')
+st.write('The current color is', color)
 def check_eligible(age, income):
     if age >= 18 and income >= 100000:
         return True
